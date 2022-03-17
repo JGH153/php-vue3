@@ -1,13 +1,21 @@
 <script setup lang="ts">
+//  TODO solve https://vitejs.dev/guide/assets.html
+import vgUrl from "@/assets/icons/vg.png";
 interface NewsPage {
   url: string;
   img: string;
 }
 
+// console.log(new URL(`"../assets/icons/vg.png`, import.meta.url).href);
+
 const newsPages: NewsPage[] = [
   {
     url: "https://vg.no",
-    img: "vg.png",
+    img: vgUrl,
+  },
+  {
+    url: "https://vuejs.org",
+    img: "logo.svg",
   },
   {
     url: "https://dagbladet.no",
@@ -60,12 +68,38 @@ const newsPages: NewsPage[] = [
   <main>
     <h1>Hemb's Startside</h1>
 
+    <img
+      alt="Vue logo"
+      class="logo"
+      src="@/assets/logo.svg"
+      width="125"
+      height="125"
+    />
+
+    <!-- Will not move to assets folder on build -->
+    <img
+      src="@/assets/icons/vg.png"
+      class="newsIcon"
+      width="125"
+      height="125"
+    />
+
+    <!-- Will not work with @ in :src as opposed to src -->
+    <!-- <img
+      alt="Vue logo"
+      class="logo"
+      src="'@/assets/logo.svg'"
+      width="125"
+      height="125"
+    /> -->
+
     <div class="card m-2">
       <div class="card-body">
         <h5 class="card-title">Nettaviser</h5>
         <div class="newsIcons">
           <a v-for="item in newsPages" :key="item.url" :href="item.url">
             <img :src="'./src/assets/icons/' + item.img" class="newsIcon" />
+            <img :src="'@/assets/icons/' + item.img" class="newsIcon" />
           </a>
         </div>
       </div>
