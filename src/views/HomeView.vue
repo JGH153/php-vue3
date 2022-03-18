@@ -1,12 +1,28 @@
 <script setup lang="ts">
-//  TODO solve https://vitejs.dev/guide/assets.html
+/*
+Two ways to import img:
 import vgUrl from "@/assets/icons/vg.png";
+const dagbladUrl = new URL("../assets/icons/dagbladet.png", import.meta.url).href;
+Will be base64 encoded...
+// https://vitejs.dev/guide/assets.html
+
+*/
+import vgUrl from "@/assets/icons/vg.png";
+import dagbladetUrl from "@/assets/icons/dagbladet.png";
+import aftenpostenUrl from "@/assets/icons/aftenposten.png";
+import abcnyheterUrl from "@/assets/icons/abcnyheter.png";
+import taUrl from "@/assets/icons/ta.png";
+import nrkUrl from "@/assets/icons/nrk.png";
+import adrressaUrl from "@/assets/icons/adrressa.png";
+import innherredUrl from "@/assets/icons/innherred.png";
+import ilevangerUrl from "@/assets/icons/ilevanger.png";
+import dnUrl from "@/assets/icons/dn.png";
+import e24Url from "@/assets/icons/e24.png";
+
 interface NewsPage {
   url: string;
   img: string;
 }
-
-// console.log(new URL(`"../assets/icons/vg.png`, import.meta.url).href);
 
 const newsPages: NewsPage[] = [
   {
@@ -14,48 +30,44 @@ const newsPages: NewsPage[] = [
     img: vgUrl,
   },
   {
-    url: "https://vuejs.org",
-    img: "logo.svg",
-  },
-  {
     url: "https://dagbladet.no",
-    img: "dagbladet.png",
+    img: dagbladetUrl,
   },
   {
     url: "https://aftenposten.no",
-    img: "aftenposten.png",
+    img: aftenpostenUrl,
   },
   {
     url: "https://abcnyheter.no",
-    img: "abcnyheter.png",
+    img: abcnyheterUrl,
   },
   {
     url: "https://t-a.no",
-    img: "ta.png",
+    img: taUrl,
   },
   {
     url: "https://nrk.no",
-    img: "nrk.png",
+    img: nrkUrl,
   },
   {
     url: "https://adressa.no",
-    img: "adrressa.png",
+    img: adrressaUrl,
   },
   {
     url: "https://Innherred.no",
-    img: "Innherred.png",
+    img: innherredUrl,
   },
   {
     url: "https://ilevanger.no",
-    img: "ilevanger.png",
+    img: ilevangerUrl,
   },
   {
     url: "https://dn.no",
-    img: "dn.png",
+    img: dnUrl,
   },
   {
     url: "https://e24.no",
-    img: "e24.png",
+    img: e24Url,
   },
 ];
 </script>
@@ -68,38 +80,12 @@ const newsPages: NewsPage[] = [
   <main>
     <h1>Hemb's Startside</h1>
 
-    <img
-      alt="Vue logo"
-      class="logo"
-      src="@/assets/logo.svg"
-      width="125"
-      height="125"
-    />
-
-    <!-- Will not move to assets folder on build -->
-    <img
-      src="@/assets/icons/vg.png"
-      class="newsIcon"
-      width="125"
-      height="125"
-    />
-
-    <!-- Will not work with @ in :src as opposed to src -->
-    <!-- <img
-      alt="Vue logo"
-      class="logo"
-      src="'@/assets/logo.svg'"
-      width="125"
-      height="125"
-    /> -->
-
     <div class="card m-2">
       <div class="card-body">
         <h5 class="card-title">Nettaviser</h5>
         <div class="newsIcons">
           <a v-for="item in newsPages" :key="item.url" :href="item.url">
-            <img :src="'./src/assets/icons/' + item.img" class="newsIcon" />
-            <img :src="'@/assets/icons/' + item.img" class="newsIcon" />
+            <img :src="item.img" class="newsIcon" />
           </a>
         </div>
       </div>
