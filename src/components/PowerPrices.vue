@@ -31,6 +31,10 @@ const loadPowerPrice = async () => {
     (current: any) => current.city === "Oslo"
   ).prices;
 
+  const trondheimPriceList = responseJson.find(
+    (current: any) => current.city === "Trondheim"
+  ).prices;
+
   osloPriceList
     // remove expired prices
     .filter((current: any) => new Date(current.from) >= new Date())
@@ -43,12 +47,22 @@ const loadPowerPrice = async () => {
       });
     });
 
-  // TODO trondheim prices
+  trondheimPriceList
+    // remove expired prices
+    .filter((current: any) => new Date(current.from) >= new Date())
+    .forEach((current: any) => {
+      const existingEntry = powerPriceMap.get(current.from);
+      if (existingEntry) {
+        powerPriceMap.set(current.from, {
+          ...existingEntry,
+          valueTrondheim: current.prisKwh,
+        });
+      }
+    });
 
   powerPrices.value = Array.from(powerPriceMap.values());
-
-  console.log("osloPriceList", powerPriceMap);
 };
+
 loadPowerPrice();
 </script>
 
@@ -60,8 +74,8 @@ loadPowerPrice();
         <thead>
           <tr>
             <th scope="col">Tid</th>
-            <th scope="col">Pris Oslo</th>
-            <th scope="col">Pris Trondhjem</th>
+            <th scope="col">Pris Oslo (NO1)</th>
+            <th scope="col">Pris Trondheim (NOR3)</th>
           </tr>
         </thead>
         <tbody>

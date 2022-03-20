@@ -29,9 +29,6 @@ import PowerPrices from "../components/PowerPrices.vue";
     <h2>Wherewby rooms</h2>
     <h2>Aksjepriser (equinor og brent)</h2>
     <h2>Translate</h2>
-    <h2>
-      Strømprier? https://mm.aftenposten.no/io/elpriser/spotpriser_latest.json
-    </h2>
   </main>
 </template>
 
