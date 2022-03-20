@@ -25,7 +25,6 @@ const loadPowerPrice = async () => {
     "https://mm.aftenposten.no/io/elpriser/spotpriser_latest.json"
   );
   const responseJson = await response.json();
-  console.log("HomePage mounted", responseJson);
 
   const osloPriceList = responseJson.find(
     (current: any) => current.city === "Oslo"

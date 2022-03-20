@@ -51,7 +51,6 @@ const loadRates = async () => {
   }));
 
   exchangeRates.value = rates;
-  console.log(exchangeRates.value);
 };
 loadRates();
 </script>
