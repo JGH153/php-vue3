@@ -4,6 +4,7 @@ import NewsIcons from "../components/NewsIcons.vue";
 import SearchBoxes from "../components/SearchBoxes.vue";
 import PowerPrices from "../components/PowerPrices.vue";
 import UsefulPages from "../components/UsefulPages.vue";
+import Weather from "../components/Weather.vue";
 
 // onMounted(async () => {});
 </script>
@@ -22,6 +23,7 @@ import UsefulPages from "../components/UsefulPages.vue";
       <ExchangeRates />
       <PowerPrices />
       <UsefulPages />
+      <Weather />
     </div>
 
     <h2>Vær</h2>

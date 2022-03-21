@@ -15,6 +15,7 @@ import ebayUrl from "@/assets/icons/ebay.png";
 import dnbUrl from "@/assets/icons/dnb.png";
 import sasUrl from "@/assets/icons/sas.png";
 import nordnettUrl from "@/assets/icons/nordnett.png";
+import icloudUrl from "@/assets/icons/icloud.png";
 // nordnett?
 import BaseCard from "./shared/BaseCard.vue";
 
@@ -69,6 +70,11 @@ const usefulPages: UsefulPage[] = [
     name: "Nordnett",
     url: "https://www.nordnet.no/no",
     img: nordnettUrl,
+  },
+  {
+    name: "iCloud",
+    url: "https://www.icloud.com/photos/",
+    img: icloudUrl,
   },
 ];
 </script>
