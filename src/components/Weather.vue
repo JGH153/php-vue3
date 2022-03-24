@@ -13,7 +13,7 @@ interface WeatherData {
   precipitation: number;
 }
 
-const weatherData = ref<WeatherData>();
+const weatherData = ref<WeatherData[]>([]);
 
 const loadWeather = async (
   lat: number,
@@ -24,24 +24,49 @@ const loadWeather = async (
     `https://api.met.no/weatherapi/locationforecast/2.0/compact?lat=${lat}&lon=${log}`
   );
   const responseJson = await response.json();
+  const nextTimeseries = responseJson.properties.timeseries.find(
+    (current: any) => new Date(current.time) >= new Date()
+  );
+  if (!nextTimeseries) {
+    alert("Kan ikke laste vær!");
+  }
   return {
-    ...responseJson.properties.timeseries[0].data.instant.details,
+    ...nextTimeseries.data.instant.details,
     name: name,
     precipitation:
-      responseJson.properties.timeseries[0].data.next_1_hours.details
-        .precipitation_amount,
+      nextTimeseries.data.next_1_hours.details.precipitation_amount,
   };
 };
 
 onMounted(async () => {
-  weatherData.value = await loadWeather(63.6997, 11.1759, "skogn");
+  weatherData.value.push(await loadWeather(63.6997, 11.1759, "Skogn"));
+  weatherData.value.push(await loadWeather(59.9488, 10.8979, "Oslo"));
 });
 </script>
 
 <template>
   <BaseCard>
     <template #header> Været akkurat nå </template>
-    <template #content> {{ weatherData }} </template></BaseCard
+    <template #content>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Sted</th>
+            <th scope="col">Tempratur</th>
+            <th scope="col">Regn</th>
+            <th scope="col">Vinn</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="item of weatherData" :key="item.name">
+            <th scope="row">{{ item.name }}</th>
+            <td>{{ item.air_temperature }}</td>
+            <td>{{ item.precipitation }}</td>
+            <td>{{ item.wind_speed }}</td>
+          </tr>
+        </tbody>
+      </table></template
+    ></BaseCard
   >
 </template>
 
