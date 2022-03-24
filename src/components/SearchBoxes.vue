@@ -36,6 +36,10 @@ const searchBoxes: SearchBoxConfig[] = [
     name: "Finn",
     searchUrl: "https://www.finn.no/globalsearchlander?q=",
   },
+  {
+    name: "Engelsk -> norsk",
+    searchUrl: "https://translate.google.com/?sl=en&tl=no&op=translate&text=",
+  },
 ];
 </script>
 

@@ -1,5 +1,9 @@
 <script setup lang="ts">
 import { RouterView } from "vue-router";
+import { useLoaderStore } from "@/stores/loader.store";
+import TheLoader from "./components/shared/TheLoader.vue";
+
+const loaderStore = useLoaderStore();
 </script>
 
 <template>
@@ -22,6 +26,8 @@ import { RouterView } from "vue-router";
       </nav> -->
     <!-- </div> -->
   </header>
+
+  <TheLoader v-if="loaderStore.ongoingBlockingRequests > 0" />
 
   <RouterView />
 </template>

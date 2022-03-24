@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { globalLoadingWrapper } from "@/shared/loadingHelpers";
+import { onMounted, ref } from "vue";
 import BaseCard from "./shared/BaseCard.vue";
 
 interface PowerPrice {
@@ -62,7 +63,11 @@ const loadPowerPrice = async () => {
   powerPrices.value = Array.from(powerPriceMap.values());
 };
 
-loadPowerPrice();
+onMounted(async () => {
+  globalLoadingWrapper(async () => {
+    await loadPowerPrice();
+  });
+});
 </script>
 
 <template>
@@ -73,8 +78,8 @@ loadPowerPrice();
         <thead>
           <tr>
             <th scope="col">Tid</th>
-            <th scope="col">Pris Oslo (NO1)</th>
-            <th scope="col">Pris Trondheim (NOR3)</th>
+            <th scope="col">Oslo</th>
+            <th scope="col">Trondheim</th>
           </tr>
         </thead>
         <tbody>

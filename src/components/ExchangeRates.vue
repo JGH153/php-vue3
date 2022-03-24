@@ -6,6 +6,7 @@ import SekUrl from "@/assets/flags/SEK.png";
 import GBPUrl from "@/assets/flags/GBP.png";
 import USDUrl from "@/assets/flags/USD.png";
 import DKKUrl from "@/assets/flags/DKK.jpeg";
+import { globalLoadingWrapper } from "@/shared/loadingHelpers";
 
 interface ExchangeRate {
   name: string;
@@ -52,7 +53,12 @@ const loadRates = async () => {
 
   exchangeRates.value = rates;
 };
-loadRates();
+
+onMounted(async () => {
+  globalLoadingWrapper(async () => {
+    await loadRates();
+  });
+});
 </script>
 
 <template>

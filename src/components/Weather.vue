@@ -1,4 +1,6 @@
+async
 <script setup lang="ts">
+import { globalLoadingWrapper } from "@/shared/loadingHelpers";
 import { onMounted, ref } from "vue";
 import BaseCard from "./shared/BaseCard.vue";
 
@@ -39,8 +41,10 @@ const loadWeather = async (
 };
 
 onMounted(async () => {
-  weatherData.value.push(await loadWeather(63.6997, 11.1759, "Skogn"));
-  weatherData.value.push(await loadWeather(59.9488, 10.8979, "Oslo"));
+  globalLoadingWrapper(async () => {
+    weatherData.value.push(await loadWeather(63.6997, 11.1759, "Skogn"));
+    weatherData.value.push(await loadWeather(59.9488, 10.8979, "Oslo"));
+  });
 });
 </script>
 
