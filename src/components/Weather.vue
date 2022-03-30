@@ -3,6 +3,8 @@ async
 import { globalLoadingWrapper } from "@/shared/loadingHelpers";
 import { onMounted, ref } from "vue";
 import BaseCard from "./shared/BaseCard.vue";
+import weatherIcon from "@/assets/helper-icons/cloudy.png";
+import BaseIcon from "./shared/BaseIcon.vue";
 
 interface WeatherData {
   air_pressure_at_sea_level: number;
@@ -50,7 +52,9 @@ onMounted(async () => {
 
 <template>
   <BaseCard>
-    <template #header> Været akkurat nå </template>
+    <template #header>
+      <BaseIcon :iconUrl="weatherIcon" /> Været akkurat nå
+    </template>
     <template #content>
       <table class="table">
         <thead>

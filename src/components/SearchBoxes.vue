@@ -2,6 +2,8 @@
 import BaseCard from "./shared/BaseCard.vue";
 import type { SearchBoxConfig } from "@/shared/SearchBoxConfig.interface";
 import SearchBox from "./SearchBox.vue";
+import searchIcon from "@/assets/helper-icons/search.png";
+import BaseIcon from "./shared/BaseIcon.vue";
 
 const searchBoxes: SearchBoxConfig[] = [
   {
@@ -45,7 +47,7 @@ const searchBoxes: SearchBoxConfig[] = [
 
 <template>
   <BaseCard>
-    <template #header> Søk </template>
+    <template #header> <BaseIcon :iconUrl="searchIcon" /> Søk </template>
     <template #content>
       <div class="inputs-container">
         <SearchBox

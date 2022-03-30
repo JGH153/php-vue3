@@ -19,6 +19,8 @@ import ilevangerUrl from "@/assets/icons/ilevanger.png";
 import dnUrl from "@/assets/icons/dn.png";
 import e24Url from "@/assets/icons/e24.png";
 import BaseCard from "./shared/BaseCard.vue";
+import newsIcon from "@/assets/helper-icons/newspaper.png";
+import BaseIcon from "./shared/BaseIcon.vue";
 
 interface NewsPage {
   url: string;
@@ -75,7 +77,7 @@ const newsPages: NewsPage[] = [
 
 <template>
   <BaseCard>
-    <template #header> Nettaviser </template>
+    <template #header> <BaseIcon :iconUrl="newsIcon" /> Nettaviser </template>
     <template #content>
       <div class="newsIcons">
         <a v-for="item in newsPages" :key="item.url" :href="item.url">
@@ -105,6 +107,7 @@ const newsPages: NewsPage[] = [
 .newsIcons {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   padding: 3px 0px;
 }
 </style>

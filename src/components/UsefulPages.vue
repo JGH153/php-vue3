@@ -18,6 +18,8 @@ import nordnettUrl from "@/assets/icons/nordnett.png";
 import icloudUrl from "@/assets/icons/icloud.png";
 // nordnett?
 import BaseCard from "./shared/BaseCard.vue";
+import BaseIcon from "./shared/BaseIcon.vue";
+import pagesIcon from "@/assets/helper-icons/web.png";
 
 interface UsefulPage {
   name: string;
@@ -81,7 +83,7 @@ const usefulPages: UsefulPage[] = [
 
 <template>
   <BaseCard>
-    <template #header> Andre sider </template>
+    <template #header> <BaseIcon :iconUrl="pagesIcon" /> Andre sider </template>
     <template #content>
       <div class="pageIcons">
         <a v-for="item in usefulPages" :key="item.url" :href="item.url">
@@ -113,6 +115,7 @@ const usefulPages: UsefulPage[] = [
 .pageIcons {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   padding: 3px 0px;
   text-align: center;
 }

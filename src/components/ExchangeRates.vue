@@ -7,6 +7,8 @@ import GBPUrl from "@/assets/flags/GBP.png";
 import USDUrl from "@/assets/flags/USD.png";
 import DKKUrl from "@/assets/flags/DKK.jpeg";
 import { globalLoadingWrapper } from "@/shared/loadingHelpers";
+import moneyIcon from "@/assets/helper-icons/salary.png";
+import BaseIcon from "./shared/BaseIcon.vue";
 
 interface ExchangeRate {
   name: string;
@@ -63,7 +65,9 @@ onMounted(async () => {
 
 <template>
   <BaseCard>
-    <template #header> Valutakurser </template>
+    <template #header>
+      <BaseIcon :iconUrl="moneyIcon" /> Valutakurser
+    </template>
     <template #content>
       <table class="table">
         <thead>

@@ -2,6 +2,8 @@
 import { globalLoadingWrapper } from "@/shared/loadingHelpers";
 import { onMounted, ref } from "vue";
 import BaseCard from "./shared/BaseCard.vue";
+import BaseIcon from "./shared/BaseIcon.vue";
+import powerIcon from "@/assets/helper-icons/energetic.png";
 
 interface PowerPrice {
   valueOslo: number;
@@ -72,7 +74,7 @@ onMounted(async () => {
 
 <template>
   <BaseCard>
-    <template #header> Strømpriser </template>
+    <template #header> <BaseIcon :iconUrl="powerIcon" /> Strømpriser </template>
     <template #content>
       <table class="table">
         <thead>

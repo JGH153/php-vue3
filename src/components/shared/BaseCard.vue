@@ -9,4 +9,9 @@
   </div>
 </template>
 
-<style></style>
+<style>
+.card-title {
+  display: flex;
+  align-items: center;
+}
+</style>

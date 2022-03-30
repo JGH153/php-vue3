@@ -57,3 +57,11 @@ npm run test:e2e # or `npm run test:e2e:ci` for headless testing
 ```sh
 npm run lint
 ```
+
+### Atributions
+<a href="https://www.flaticon.com/free-icons/power" title="power icons">Power icons created by Freepik - Flaticon</a>
+<a href="https://www.flaticon.com/free-icons/newspaper" title="newspaper icons">Newspaper icons created by Freepik - Flaticon</a>
+<a href="https://www.flaticon.com/free-icons/website" title="website icons">Website icons created by Freepik - Flaticon</a>
+<a href="https://www.flaticon.com/free-icons/search" title="search icons">Search icons created by Maxim Basinski Premium - Flaticon</a>
+<a href="https://www.flaticon.com/free-icons/weather" title="weather icons">Weather icons created by iconixar - Flaticon</a>
+<a href="https://www.flaticon.com/free-icons/money" title="money icons">Money icons created by Freepik - Flaticon</a>

@@ -7,31 +7,51 @@ const loaderStore = useLoaderStore();
 </script>
 
 <template>
-  <header>
-    <!-- <img
-      alt="Vue logo"
-      class="logo"
-      src="@/assets/logo.svg"
-      width="125"
-      height="125"
-    /> -->
-    <!--
+  <div class="app-container">
+    <header></header>
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" /> -->
+    <TheLoader v-if="loaderStore.ongoingBlockingRequests > 0" />
 
-    <!-- <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav> -->
-    <!-- </div> -->
-  </header>
-
-  <TheLoader v-if="loaderStore.ongoingBlockingRequests > 0" />
-
-  <RouterView />
+    <div class="route-container">
+      <RouterView />
+    </div>
+  </div>
 </template>
 
 <style>
 @import "@/assets/base.css";
+
+.app-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.route-container {
+  background-color: white;
+  padding: 1rem 0rem;
+  margin: 1rem;
+  border-radius: 3rem;
+  max-width: var(--screen-size-medium);
+}
+
+/* // Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .route-container {
+    padding: 2rem;
+    margin: 2rem;
+    max-width: var(--screen-size-large);
+  }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  .route-container {
+    padding: 4rem;
+    margin: 4rem;
+    max-width: var(--screen-size-x-large);
+  }
+}
 </style>

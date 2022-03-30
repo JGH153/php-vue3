@@ -15,21 +15,20 @@ import Weather from "../components/Weather.vue";
 
 <template>
   <main>
-    <h1>Hemb's Startside</h1>
+    <h1 class="center">Hemb's Startside</h1>
 
+    <NewsIcons />
+    <UsefulPages />
     <div class="cards-container">
-      <NewsIcons />
       <SearchBoxes />
       <ExchangeRates />
       <PowerPrices />
-      <UsefulPages />
       <Weather />
     </div>
 
-    <h2>Nyttige programmer</h2>
+    <!-- <h2>Nyttige programmer</h2>
     <h2>Aksjepriser (equinor og brent)</h2>
-    <h2>Translate</h2>
-    <h2>Local loader for cards? with sceleton?</h2>
+    <h2>Local loader for cards? with sceleton?</h2> -->
   </main>
 </template>
 
@@ -37,5 +36,9 @@ import Weather from "../components/Weather.vue";
 .cards-container {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+}
+.center {
+  text-align: center;
 }
 </style>
