@@ -33,15 +33,14 @@ const loaderStore = useLoaderStore();
   background-color: white;
   padding: 1rem 0rem;
   margin: 1rem;
-  border-radius: 3rem;
+  border-radius: 0.5rem;
   max-width: var(--screen-size-medium);
 }
 
 /* // Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
   .route-container {
-    padding: 2rem;
-    margin: 2rem;
+    padding: 1.5rem;
     max-width: var(--screen-size-large);
   }
 }
@@ -49,8 +48,7 @@ const loaderStore = useLoaderStore();
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
   .route-container {
-    padding: 4rem;
-    margin: 4rem;
+    padding: 2rem;
     max-width: var(--screen-size-x-large);
   }
 }
