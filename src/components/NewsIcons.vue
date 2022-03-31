@@ -80,7 +80,12 @@ const newsPages: NewsPage[] = [
     <template #header> <BaseIcon :iconUrl="newsIcon" /> Nettaviser </template>
     <template #content>
       <div class="newsIcons">
-        <a v-for="item in newsPages" :key="item.url" :href="item.url">
+        <a
+          v-for="item in newsPages"
+          :key="item.url"
+          :href="item.url"
+          target="_blank"
+        >
           <img :src="item.img" class="newsIcon" />
         </a>
       </div>

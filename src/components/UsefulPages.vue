@@ -7,7 +7,6 @@ Will be base64 encoded...
 // https://vitejs.dev/guide/assets.html
 
 */
-import vgUrl from "@/assets/icons/vg.png";
 import wherebyUrl from "@/assets/icons/whereby.png";
 import nordeaUrl from "@/assets/icons/nordea.png";
 import facebookUrl from "@/assets/icons/facebook.png";
@@ -28,11 +27,6 @@ interface UsefulPage {
 }
 
 const usefulPages: UsefulPage[] = [
-  {
-    name: "VG",
-    url: "https://vg.no",
-    img: vgUrl,
-  },
   {
     name: "Hemb",
     url: "https://whereby.com/hemb",
@@ -65,7 +59,7 @@ const usefulPages: UsefulPage[] = [
   },
   {
     name: "SAS",
-    url: "http://www.sas.com/",
+    url: "http://www.sas.no/",
     img: sasUrl,
   },
   {
@@ -86,7 +80,12 @@ const usefulPages: UsefulPage[] = [
     <template #header> <BaseIcon :iconUrl="pagesIcon" /> Andre sider </template>
     <template #content>
       <div class="pageIcons">
-        <a v-for="item in usefulPages" :key="item.url" :href="item.url">
+        <a
+          v-for="item in usefulPages"
+          :key="item.url"
+          :href="item.url"
+          target="_blank"
+        >
           <img :src="item.img" class="pageIcon" :title="item.name" />
           <br />
           {{ item.name }}
